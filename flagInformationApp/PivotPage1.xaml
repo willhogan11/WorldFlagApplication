@@ -1,0 +1,128 @@
+﻿<phone:PhoneApplicationPage 
+    x:Class="flagInformationApp.PivotPage1"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="768"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait"  Orientation="Portrait"
+    shell:SystemTray.IsVisible="True">
+
+    <phone:PhoneApplicationPage.Resources>
+        <DataTemplate x:Key="FlagDataTemplate">
+            <StackPanel x:Name="parentSP" Orientation="Horizontal" HorizontalAlignment="Center" Margin="3" VerticalAlignment="Top">
+                <Border Background="CornflowerBlue" CornerRadius="10" Height="100" Width="120" HorizontalAlignment="Center" VerticalAlignment="Center" >
+                    <Image Height="100" Width="120" Source="{Binding countryImage}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="4,0" Stretch="Uniform"  />
+                </Border>
+                <StackPanel x:Name="countrySP" Margin="2">
+                    <StackPanel x:Name="countryNameSP" Orientation="Horizontal">
+                        <TextBlock Text="Name: " Margin="1" FontSize="{StaticResource PhoneFontSizeSmall}" />
+                        <!-- No Spaces between the Double Quotes, staticResourse should be brown text and PhoneTextTitle2Style in red -->
+                        <TextBlock Text="{Binding countryName}" Margin="1" FontSize="{StaticResource PhoneFontSizeSmall}" />
+                    </StackPanel>
+                    <StackPanel x:Name="countryCurrencySP" Orientation="Horizontal">
+                        <TextBlock Text="Currency: " Margin="1" FontSize="{StaticResource PhoneFontSizeSmall}" />
+                        <TextBlock Text="{Binding countryCurrency}" Margin="1" FontSize="{StaticResource PhoneFontSizeSmall}" />
+                    </StackPanel>
+                    <StackPanel x:Name="countryPopulationSP" Orientation="Horizontal">
+                        <TextBlock Text="Population: " Margin="1" FontSize="{StaticResource PhoneFontSizeSmall}" />
+                        <TextBlock Text="{Binding countryPopulation}" Margin="2" FontSize="{StaticResource PhoneFontSizeSmall}" />
+                    </StackPanel>
+                    <StackPanel x:Name="countryCapitalSP" Orientation="Horizontal">
+                        <TextBlock Text="Capital: " Margin="1" FontSize="{StaticResource PhoneFontSizeSmall}" />
+                        <TextBlock Text="{Binding countryCapital}" Margin="1" FontSize="{StaticResource PhoneFontSizeSmall}" />
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+        </DataTemplate>
+
+    </phone:PhoneApplicationPage.Resources>
+    
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="180" />
+        </Grid.RowDefinitions>
+        <!--Pivot Control-->
+        <controls:Pivot Title="Continent" LoadingPivotItem="Pivot_LoadingPivotItem" Grid.Row ="0" Background="{StaticResource PhoneBackgroundBrush}" Foreground="{StaticResource PhoneForegroundBrush}">
+            
+            <!--Pivot item one-->
+            <controls:PivotItem Header="Europe">
+                <Grid x:Name="contentEurope" Grid.Row="1" Margin="12,0,12,12">
+                    <ListBox x:Name="countriesEurope" HorizontalAlignment="Left"  Height="500" VerticalAlignment="Top" ItemTemplate="{StaticResource FlagDataTemplate}">
+                    </ListBox>
+                </Grid>
+            </controls:PivotItem>
+
+            <!--Pivot item two-->
+            <controls:PivotItem Header="Asia">
+                <Grid x:Name="contentAsia" Grid.Row="1" Margin="12,0,12,12">
+                    <ListBox x:Name="countriesAsia" HorizontalAlignment="Left"  Height="500" VerticalAlignment="Top" ItemTemplate="{StaticResource FlagDataTemplate}">
+                    </ListBox>
+                </Grid>
+            </controls:PivotItem>
+
+            <!--Pivot item three-->
+            <controls:PivotItem Header="Africa">
+                <Grid x:Name="contentAfrica" Grid.Row="1" Margin="12,0,12,12">
+                    <ListBox x:Name="countriesAfrica" HorizontalAlignment="Left"  Height="500" VerticalAlignment="Top" ItemTemplate="{StaticResource FlagDataTemplate}">
+                    </ListBox>
+                </Grid>
+            </controls:PivotItem>
+
+            <!--Pivot item four-->
+            <controls:PivotItem Header="North America">
+                <Grid x:Name="contentNorthAmerica" Grid.Row="1" Margin="12,0,12,12">
+                    <ListBox x:Name="countriesNorthAmerica" HorizontalAlignment="Left"  Height="500" VerticalAlignment="Top" ItemTemplate="{StaticResource FlagDataTemplate}">
+                    </ListBox>
+                </Grid>
+            </controls:PivotItem>
+
+            <!--Pivot item five-->
+            <controls:PivotItem Header="South America">
+                <Grid x:Name="contentSouthAmerica" Grid.Row="1" Margin="12,0,12,12">
+                    <ListBox x:Name="countriesSouthAmerica" HorizontalAlignment="Left"  Height="500" VerticalAlignment="Top" ItemTemplate="{StaticResource FlagDataTemplate}">
+                    </ListBox>
+                </Grid>
+            </controls:PivotItem>
+
+            <!--Pivot item six-->
+            <controls:PivotItem Header="Oceania">
+                <Grid x:Name="contentOceania" Grid.Row="1" Margin="12,0,12,12">
+                    <ListBox x:Name="countriesOceania" HorizontalAlignment="Left"  Height="500" VerticalAlignment="Top" ItemTemplate="{StaticResource FlagDataTemplate}">
+                    </ListBox>
+                </Grid>
+            </controls:PivotItem>
+
+
+        </controls:Pivot>
+
+        <!-- These Continent Images will be made Visible at Runtime depending on the Continent Data thats loaded -->
+        <Image Source="ContinentImages/SouthAmerica.png" Name="southAmerica" Grid.Row="1" Width="200" Height="150" Stretch="Fill" Visibility="Collapsed"/>
+        <Image Source="ContinentImages/Europe.png" Name="europe" Grid.Row="1" Width="200" Height="150" Stretch="Fill" Visibility="Collapsed"/>
+        <Image Source="ContinentImages/NorthAmerica.png" Name="northAmerica" Grid.Row="1" Width="200" Height="150" Stretch="Fill" Visibility="Collapsed"/>
+        <Image Source="ContinentImages/Asia.png" Name="asia" Grid.Row="1" Width="200" Height="150" Stretch="fill" Visibility="Collapsed"/>
+        <Image Source="ContinentImages/Oceania.png" Name="oceania" Grid.Row="1" Width="200" Height="150" Stretch="Fill" Visibility="Collapsed"/>
+        <Image Source="ContinentImages/Africa.png" Name="africa"  Grid.Row="1" Width="200" Height="150" Margin="0,20,0,0" Stretch="Fill" Visibility="Collapsed"/>
+    </Grid>
+
+    <!--Sample code showing usage of ApplicationBar-->
+    <!--<phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True">
+            <shell:ApplicationBarIconButton x:Name="appbar_button1" IconUri="/Images/appbar_button1.png" Text="Button 1"/>
+            <shell:ApplicationBarIconButton x:Name="appbar_button2" IconUri="/Images/appbar_button2.png" Text="Button 2"/>
+            <shell:ApplicationBar.MenuItems>
+                <shell:ApplicationBarMenuItem x:Name="menuItem1" Text="MenuItem 1"/>
+                <shell:ApplicationBarMenuItem x:Name="menuItem2" Text="MenuItem 2"/>
+            </shell:ApplicationBar.MenuItems>
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>-->
+    
+</phone:PhoneApplicationPage>

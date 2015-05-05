@@ -1,0 +1,6 @@
+<MarketplaceDetails>
+  <SmallAppTile>CountryAppTile(99x99).png</SmallAppTile>
+  <LargeAppTile>CountryAppTile(173x173).png</LargeAppTile>
+  <PCAppTile>CountryAppTile.png</PCAppTile>
+  <ScreenShots>AppScreenshot(480x800).png;AppScreenshot(480x800)Optional.png;;;;;;;</ScreenShots>
+</MarketplaceDetails>
