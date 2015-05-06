@@ -54,88 +54,83 @@ namespace flagInformationApp
             switch (e.Item.Header.ToString())
             {
                 case "Europe":
+                {
+                    if (ListOfEuropeanCountries == null)
                     {
-                        if (ListOfEuropeanCountries == null)
-                        {
-                            ListOfEuropeanCountries = new List<WorldCountriesClass>();
-                            fillTheEuropeanList();
-                            countriesEurope.ItemsSource = ListOfEuropeanCountries;
-                        }
-                        europe.Visibility = System.Windows.Visibility.Visible;
-                        oceania.Visibility = System.Windows.Visibility.Collapsed;
-                        asia.Visibility = System.Windows.Visibility.Collapsed;
-                        break;
+                        ListOfEuropeanCountries = new List<WorldCountriesClass>();
+                        fillTheEuropeanList();
+                        countriesEurope.ItemsSource = ListOfEuropeanCountries;
                     }
+                    europe.Visibility = System.Windows.Visibility.Visible;
+                    oceania.Visibility = System.Windows.Visibility.Collapsed;
+                    asia.Visibility = System.Windows.Visibility.Collapsed;
+                    break;
+                }
                 case "Asia":
+                {
+                    if (ListOfAsianCountries == null)
                     {
-                        if (ListOfAsianCountries == null)
-                        {
-                            ListOfAsianCountries = new List<WorldCountriesClass>();
-                            fillTheAsianList();
-                            countriesAsia.ItemsSource = ListOfAsianCountries;
-                           
-                        }
-                        asia.Visibility = System.Windows.Visibility.Visible;
-                        europe.Visibility = System.Windows.Visibility.Collapsed;
-                        africa.Visibility = System.Windows.Visibility.Collapsed;
-                        break;
+                        ListOfAsianCountries = new List<WorldCountriesClass>();
+                        fillTheAsianList();
+                        countriesAsia.ItemsSource = ListOfAsianCountries;
                     }
+                    asia.Visibility = System.Windows.Visibility.Visible;
+                    europe.Visibility = System.Windows.Visibility.Collapsed;
+                    africa.Visibility = System.Windows.Visibility.Collapsed;
+                    break;
+                }
                 case "Africa":
+                {
+                    if (ListOfAfricanCountries == null)
                     {
-                        if (ListOfAfricanCountries == null)
-                        {
-                            ListOfAfricanCountries = new List<WorldCountriesClass>();
-                            fillTheAfricanList();
-                            countriesAfrica.ItemsSource = ListOfAfricanCountries;
-                      
-                        }
-                        africa.Visibility = System.Windows.Visibility.Visible;
-                        asia.Visibility = System.Windows.Visibility.Collapsed;
-                        northAmerica.Visibility = System.Windows.Visibility.Collapsed;
-                        break;
+                        ListOfAfricanCountries = new List<WorldCountriesClass>();
+                        fillTheAfricanList();
+                        countriesAfrica.ItemsSource = ListOfAfricanCountries;
                     }
+                    africa.Visibility = System.Windows.Visibility.Visible;
+                    asia.Visibility = System.Windows.Visibility.Collapsed;
+                    northAmerica.Visibility = System.Windows.Visibility.Collapsed;
+                    break;
+                }
                 case "North America":
+                {
+                    if (ListOfNorthAmericanCountries == null)
                     {
-                        if (ListOfNorthAmericanCountries == null)
-                        {
-                            ListOfNorthAmericanCountries = new List<WorldCountriesClass>();
-                            fillTheNorthAmericanList();
-                            countriesNorthAmerica.ItemsSource = ListOfNorthAmericanCountries;
-                   
-                        }
-                        northAmerica.Visibility = System.Windows.Visibility.Visible;
-                        africa.Visibility = System.Windows.Visibility.Collapsed;
-                        southAmerica.Visibility = System.Windows.Visibility.Collapsed;
-                        break;
+                        ListOfNorthAmericanCountries = new List<WorldCountriesClass>();
+                        fillTheNorthAmericanList();
+                        countriesNorthAmerica.ItemsSource = ListOfNorthAmericanCountries;
                     }
+                    northAmerica.Visibility = System.Windows.Visibility.Visible;
+                    africa.Visibility = System.Windows.Visibility.Collapsed;
+                    southAmerica.Visibility = System.Windows.Visibility.Collapsed;
+                    break;
+                }
                 case "South America":
+                {
+                    if (ListOfSouthAmericanCountries == null)
                     {
-                        if (ListOfSouthAmericanCountries == null)
-                        {
-                            ListOfSouthAmericanCountries = new List<WorldCountriesClass>();
-                            fillTheSouthAmericanList();
-                            countriesSouthAmerica.ItemsSource = ListOfSouthAmericanCountries;
-                           
-                        }
-                        southAmerica.Visibility = System.Windows.Visibility.Visible;
-                        northAmerica.Visibility = System.Windows.Visibility.Collapsed;
-                        oceania.Visibility = System.Windows.Visibility.Collapsed;
-                        break;
+                        ListOfSouthAmericanCountries = new List<WorldCountriesClass>();
+                        fillTheSouthAmericanList();
+                        countriesSouthAmerica.ItemsSource = ListOfSouthAmericanCountries;
                     }
+                    southAmerica.Visibility = System.Windows.Visibility.Visible;
+                    northAmerica.Visibility = System.Windows.Visibility.Collapsed;
+                    oceania.Visibility = System.Windows.Visibility.Collapsed;
+                    break;
+                }
                 case "Oceania":
+                {
+                    if (ListOfOceaniaCountries == null)
                     {
-                        if (ListOfOceaniaCountries == null)
-                        {
-                            ListOfOceaniaCountries = new List<WorldCountriesClass>();
-                            fillTheOceaniaList();
-                            countriesOceania.ItemsSource = ListOfOceaniaCountries;
-                      
-                        }
-                        oceania.Visibility = System.Windows.Visibility.Visible;
-                        southAmerica.Visibility = System.Windows.Visibility.Collapsed;
-                        europe.Visibility = System.Windows.Visibility.Collapsed;
-                        break;
+                        ListOfOceaniaCountries = new List<WorldCountriesClass>();
+                        fillTheOceaniaList();
+                        countriesOceania.ItemsSource = ListOfOceaniaCountries;
                     }
+                    oceania.Visibility = System.Windows.Visibility.Visible;
+                    southAmerica.Visibility = System.Windows.Visibility.Collapsed;
+                    europe.Visibility = System.Windows.Visibility.Collapsed;
+                    break;
+                }
                 default:
                     break;
 
